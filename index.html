@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Input Penjualan – Uni Elektronik</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Input penjualan – Uni Elektronik</h1>
+<p class="sub">Isi data, lalu klik Export PDF. Data tersimpan otomatis di browser ini.</p>
+
+<section class="card">
+<h2>Kop laporan (tetap)</h2>
+<div class="pad">
+<p style="margin:0 0 12px;text-align:center;font-weight:600">PT BUMI MAS BALI MULIA<br>REPORT SALES BY SUPPLIER/VENDOR</p>
+<div class="grid">
+<label>Periode dari<input id="from" type="date"></label>
+<label>Periode sampai<input id="to" type="date"></label>
+</div>
+<p class="sub" style="margin:10px 0 0">Print date otomatis hari ini, by Prima. Filter: Location : All, Item Group : All, Item Category : All.</p>
+</div>
+</section>
+
+<div id="groups"></div>
+
+<div class="bar">
+<input id="gname" placeholder="Nama supplier/vendor, mis. PT. ISTANA ARGO KARTIKA" style="flex:1;min-width:220px">
+<button id="addg">Tambah supplier</button>
+<button class="main" id="pdf">Export PDF</button>
+<button id="exp" title="Simpan cadangan data ke file">Backup</button>
+<button id="impb" title="Pulihkan data dari file backup">Pulihkan</button>
+<button id="reset" title="Hapus semua data">Kosongkan</button>
+<button id="key" title="Ganti atau hapus PIN untuk Scan foto">PIN</button>
+</div>
+</main>
+
+<input type="file" id="file" accept="image/*" multiple hidden>
+<input type="file" id="cam" accept="image/*" capture="environment" hidden>
+<input type="file" id="imp" accept="application/json,.json" hidden>
+
+<dialog id="rev">
+<h2 style="margin:0 0 4px;font-size:16px">Periksa hasil scan</h2>
+<p class="sub" style="margin:0 0 10px">Cek barcode dan qty sebelum dimasukkan. Barcode yang sudah ada di tabel akan ditambah qty-nya.</p>
+<div id="revbody"></div>
+<div class="bar" style="margin-top:12px"><button class="main" id="revok">Masukkan ke tabel</button><button id="revno">Batal</button></div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
